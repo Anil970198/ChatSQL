@@ -26,8 +26,8 @@ Built for ease-of-use, learning, and real-time querying — ideal for beginners,
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/chat-sql.git
-cd chat-sql
+git clone https://github.com/Anil970198/ChatSQL.git
+cd ChatSQL
 ```
 
 ### 2. Create a Virtual Environment (Optional but recommended)
