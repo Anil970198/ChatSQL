@@ -1,133 +1,139 @@
-# 📊 ChatSQL: Conversational SQL Assistant
+# 📊 ChatSQL: Natural Language Interface for SQL Databases
 
-A Streamlit-based app that lets you **chat with your database** using natural language! Ask questions like _"Show me all students with grades above 90"_ and watch it convert your prompt into SQL, execute it, and return results — instantly and beautifully.
-
-Built for ease-of-use, learning, and real-time querying — ideal for beginners, educators, and data professionals.
+Welcome to **ChatSQL** — a sleek and simple interface that lets you interact with your database using plain English. Powered by **LangChain**, **Groq**, and **Streamlit**, this app translates your natural language questions into SQL queries, executes them on a connected **PostgreSQL (Neon)** database, and displays the results — all within seconds.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- 💬 Chat Interface for SQL queries
-- 🤖 LLM-Powered prompt-to-SQL conversion
-- 🧠 Remembers query history
-- 🛠️ Connects to your SQLite database
-- 📁 Clean UI with Streamlit
-
----
-
-## 🖼️ Demo
-
-![screenshot]([Screenshot 2025-03-28 at 4.58.10 PM.png](https://github.com/Anil970198/ChatSQL/blob/2596571d69bc87fe510df0095253179cfc7ff113/Screenshot%202025-03-28%20at%204.58.10%E2%80%AFPM.png))
-
----
-
-## 🚀 Installation
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/Anil970198/ChatSQL.git
-cd ChatSQL
-```
-
-### 2. Create a Virtual Environment (Optional but recommended)
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
-
-### 3. Install Requirements
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Add Your SQLite Database
-Make sure your SQLite file (e.g., `student.db`) is present in the root directory, or change the path in `sqlite.py` accordingly.
-
----
-
-## 🧠 How It Works
-
-- You enter a question like: `List all students who scored above 80`.
-- The app uses an LLM (e.g., OpenAI, Groq, or Ollama) to translate that to SQL.
-- SQL is executed on your SQLite database.
-- Results are displayed in a clean table.
-
----
-
-## ⚙️ Configuration
-
-Set your LLM provider in the code (currently defaults to local SQLite logic). To use an external LLM:
-
-- Create a `.env` file:
-```
-OPENAI_API_KEY=your_key_here
-```
-
-- Update `app.py` to use the key and provider.
+- 💬 **Ask questions in natural language**
+- 📡 **Automatically generates SQL queries**
+- 🧠 **Uses Google Gemma 2 LLM via Groq API**
+- 🗄️ **Connects to Neon Postgres cloud database**
+- 📜 **Displays queries and result tables side by side**
+- 🎯 Clean, professional, and fast
 
 ---
 
 ## 🧪 Example Prompts
 
-```
-Show all books written by J.K. Rowling
-How many students scored more than 75?
-List all employees hired in 2023
-Get the top 5 products by sales
-```
+| Prompt | Behavior |
+|--------|----------|
+| `Show all students with marks above 80` | Generates a SELECT query with condition |
+| `How many students scored below 40?` | Performs a COUNT query |
+| `What are the names and grades of top 5 students?` | LIMIT + ORDER BY query |
 
 ---
 
-## 🧱 Folder Structure
-```
-├── app.py              # Streamlit app main file
-├── sqlite.py           # DB connection and SQL execution
-├── requirements.txt    # Dependencies
-├── .gitignore          # Ignore .venv, __pycache__, .env, etc.
-├── README.md           # You're reading it :)
-```
+## 🖼️ Screenshot
+
+![ChatSQL Screenshot](https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO_NAME/main/assets/screenshot.png)
+
+> *(Replace with actual screenshot once available)*
 
 ---
 
-## 🧼 Clean Up `.gitignore`
-Ensure your `.gitignore` includes:
-```
-.venv
-.env
-__pycache__/
-*.db
-.idea/
+## 🏗️ Project Structure
+
+```bash
+├── app.py                   # Main Streamlit App
+├── requirements.txt        # Python dependencies
+├── .gitignore              # Ignored files (.venv, .idea, etc.)
+├── README.md               # This file
 ```
 
 ---
 
-## 🙋‍♂️ Contributing
-Pull requests are welcome! Fork the repo, create a new branch, make your changes, and submit a PR.
+## ⚙️ Setup Instructions
+
+### ✅ 1. Clone the Repo
+```bash
+git clone https://github.com/YOUR_USERNAME/chat-sql.git
+cd chat-sql
+```
+
+### ✅ 2. Set Up Virtual Environment
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### ✅ 3. Configure `.env` File
+Create a `.env` file in the root with your keys:
+```env
+GROQ_API_KEY=your_groq_api_key
+DATABASE_URL=postgresql+psycopg2://username:password@your-neon-host/db_name
+```
+
+Example Neon URL:
+```
+postgresql+psycopg2://default:abc123@ep-my-db.us-east-2.aws.neon.tech/neondb
+```
+
+### ✅ 4. Run the App
+```bash
+streamlit run app.py
+```
+
+Then visit `http://localhost:8501`
 
 ---
 
-## 📜 License
-MIT License. Free to use and modify.
+## 🌐 Hosting on Streamlit Cloud
+
+1. Push code to a **public GitHub repo**.
+2. Go to [share.streamlit.io](https://share.streamlit.io)
+3. Link your GitHub repo.
+4. Set environment variables:
+   - `GROQ_API_KEY`
+   - `DATABASE_URL`
+
+That’s it! Your app will be live.
 
 ---
 
-## 💡 Future Improvements
-- 🔒 User Authentication
-- 🌐 Support for PostgreSQL, MySQL
-- 🧠 More natural language support
-- 📊 Visualization of query results
+## 🧠 How It Works
+
+1. User types a question like: `List students who failed`
+2. LangChain + Groq's Gemma 2 model converts it into SQL:
+   ```sql
+   SELECT * FROM students WHERE marks < 40;
+   ```
+3. SQL is executed on Neon DB
+4. Results are displayed in a table
 
 ---
 
-## 🤝 Acknowledgements
-- [Streamlit](https://streamlit.io)
-- [SQLite](https://www.sqlite.org/index.html)
-- [LangChain](https://www.langchain.com/) *(planned)*
+## 🛠️ Built With
+
+- [LangChain](https://github.com/langchain-ai/langchain) for LLM orchestration
+- [Groq](https://groq.com/) for fast Gemma 2 inference
+- [Streamlit](https://streamlit.io) for frontend
+- [Neon](https://neon.tech) for scalable Postgres
 
 ---
 
-## ✨ Created With Love by [Your Name]
+## 📚 Learnings & Contributions
 
-> "Talk to your data like never before."
+- Practiced using **LLMs for SQL generation**
+- Integrated a real **PostgreSQL database on Neon**
+- Used `.env`, `.gitignore`, and **separated logic from UI**
+- Practiced **PR creation**, **branch workflows**, and **multi-account GitHub testing**
+
+---
+
+## 🤝 Contributing
+Pull requests are welcome. Fork the repo, make changes, and submit a PR.
+
+---
+
+## 📃 License
+MIT License
+
+---
+
+## 🔗 Connect
+- Creator: [Anil Kumar](https://github.com/Anil970198)
+- Project Repo: [github.com/Anil970198/ChatSQL](https://github.com/Anil970198/ChatSQL)
 
