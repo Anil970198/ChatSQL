@@ -1,73 +1,133 @@
-# 🧠 GemMath AI – Solve Math with Gemma 2 🚀
+# 📊 ChatSQL: Conversational SQL Assistant
 
-GemMath AI is an intelligent Streamlit-powered assistant that **solves numeric and symbolic math problems**, handles **logical reasoning**, and performs **real-time Wikipedia searches** — all powered by **Google Gemma 2 via Groq**, LangChain, and SymPy.
+A Streamlit-based app that lets you **chat with your database** using natural language! Ask questions like _"Show me all students with grades above 90"_ and watch it convert your prompt into SQL, execute it, and return results — instantly and beautifully.
 
-> 🔍 Built for learners, engineers, and curious minds who want clear step-by-step answers to complex math and reasoning problems — right in their browser.
-
----
-
-## 🚀 Features
-
-✅ **Numeric & Symbolic Math Solver**  
-- Handles calculations like `12 + 5 * 3`  
-- Supports symbolic operations: `differentiate`, `integrate`, `expand`, `solve`, `simplify`, `limit`  
-- Returns LaTeX-rendered step-by-step results using `SymPy`
-
-🧠 **Logical Reasoning Engine**  
-- Multi-step reasoning for logic problems like:  
-  *"John is taller than Alice. Alice is taller than Bob. Who is the tallest?"*
-
-📚 **Wikipedia Search Agent**  
-- Instant access to encyclopedic knowledge through LangChain + Wikipedia API
-
-🌐 **Beautiful Streamlit Interface**  
-- Clean and intuitive UI with tab-based navigation
-
-🔐 **Groq API Integration**  
-- Runs **Gemma 2 (Gemma2-9b-It)** blazing-fast via Groq's LLM inference
+Built for ease-of-use, learning, and real-time querying — ideal for beginners, educators, and data professionals.
 
 ---
 
-## 🛠️ Tech Stack
+## ✨ Features
 
-| Layer        | Tools & Frameworks                          |
-|--------------|---------------------------------------------|
-| 💡 LLM Agent | [LangChain](https://www.langchain.com/)     |
-| ⚙️ Backend   | Python, [SymPy](https://www.sympy.org/), [Groq API](https://groq.com/) |
-| 🧮 LLM Model | Google Gemma 2 (Gemma2-9b-It) via Groq      |
-| 🖼️ Frontend  | [Streamlit](https://streamlit.io/)          |
-| 📚 Knowledge | Wikipedia API                               |
+- 💬 Chat Interface for SQL queries
+- 🤖 LLM-Powered prompt-to-SQL conversion
+- 🧠 Remembers query history
+- 🛠️ Connects to your SQLite database
+- 📁 Clean UI with Streamlit
 
 ---
 
-## 🧪 Live Demo
+## 🖼️ Demo
 
-**[👉 Try it on Streamlit (Demo)](https://your-app-url.streamlit.app)**  
-> _(Replace with your hosted app URL)_
-
----
-
-## 📸 Screenshots
-
-| Math Solver (Symbolic) | Logical Reasoning |
-|------------------------|-------------------|
-| ![Math Demo](screenshots/math_solver.png) | ![Reasoning Demo](screenshots/reasoning.png) |
+![screenshot](Screenshot 2025-03-28 at 4.58.10 PM.png)
 
 ---
 
-## 🧰 How to Run Locally
+## 🚀 Installation
 
+### 1. Clone the Repository
 ```bash
-# Clone the repo
-git clone https://github.com/YOUR-USERNAME/GemMath-AI.git
-cd GemMath-AI
+git clone https://github.com/your-username/chat-sql.git
+cd chat-sql
+```
 
-# Create virtual environment
+### 2. Create a Virtual Environment (Optional but recommended)
+```bash
 python -m venv .venv
-source .venv/bin/activate   # or .venv\Scripts\activate on Windows
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
 
-# Install dependencies
+### 3. Install Requirements
+```bash
 pip install -r requirements.txt
+```
 
-# Run the app
-streamlit run app.py
+### 4. Add Your SQLite Database
+Make sure your SQLite file (e.g., `student.db`) is present in the root directory, or change the path in `sqlite.py` accordingly.
+
+---
+
+## 🧠 How It Works
+
+- You enter a question like: `List all students who scored above 80`.
+- The app uses an LLM (e.g., OpenAI, Groq, or Ollama) to translate that to SQL.
+- SQL is executed on your SQLite database.
+- Results are displayed in a clean table.
+
+---
+
+## ⚙️ Configuration
+
+Set your LLM provider in the code (currently defaults to local SQLite logic). To use an external LLM:
+
+- Create a `.env` file:
+```
+OPENAI_API_KEY=your_key_here
+```
+
+- Update `app.py` to use the key and provider.
+
+---
+
+## 🧪 Example Prompts
+
+```
+Show all books written by J.K. Rowling
+How many students scored more than 75?
+List all employees hired in 2023
+Get the top 5 products by sales
+```
+
+---
+
+## 🧱 Folder Structure
+```
+├── app.py              # Streamlit app main file
+├── sqlite.py           # DB connection and SQL execution
+├── requirements.txt    # Dependencies
+├── .gitignore          # Ignore .venv, __pycache__, .env, etc.
+├── README.md           # You're reading it :)
+```
+
+---
+
+## 🧼 Clean Up `.gitignore`
+Ensure your `.gitignore` includes:
+```
+.venv
+.env
+__pycache__/
+*.db
+.idea/
+```
+
+---
+
+## 🙋‍♂️ Contributing
+Pull requests are welcome! Fork the repo, create a new branch, make your changes, and submit a PR.
+
+---
+
+## 📜 License
+MIT License. Free to use and modify.
+
+---
+
+## 💡 Future Improvements
+- 🔒 User Authentication
+- 🌐 Support for PostgreSQL, MySQL
+- 🧠 More natural language support
+- 📊 Visualization of query results
+
+---
+
+## 🤝 Acknowledgements
+- [Streamlit](https://streamlit.io)
+- [SQLite](https://www.sqlite.org/index.html)
+- [LangChain](https://www.langchain.com/) *(planned)*
+
+---
+
+## ✨ Created With Love by [Your Name]
+
+> "Talk to your data like never before."
+
