@@ -18,7 +18,7 @@ Built for ease-of-use, learning, and real-time querying — ideal for beginners,
 
 ## 🖼️ Demo
 
-![screenshot](Screenshot 2025-03-28 at 4.58.10 PM.png)
+![screenshot]([Screenshot 2025-03-28 at 4.58.10 PM.png](https://github.com/Anil970198/ChatSQL/blob/2596571d69bc87fe510df0095253179cfc7ff113/Screenshot%202025-03-28%20at%204.58.10%E2%80%AFPM.png))
 
 ---
 
